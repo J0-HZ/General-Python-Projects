@@ -1,0 +1,49 @@
+"""
+This program uses loops to check whether a user wants to calculate the height of a child.
+"""
+
+"""
+@author: Hernandez, Jose
+"""
+
+selection = input('Do you want to calculate the height of a child(Y or N)? ')
+
+while (selection != 'N'):
+    mother_feet_h, mother_inches_h = input("Enter mother’s height (in feet and inches): ").split(' ')
+    mother_feet_h = int(mother_feet_h)
+    mother_inches_h = int(mother_inches_h)
+    father_feet_h, father_inches_h = input("Enter father’s height (in feet and inches): ").split(' ')
+    father_feet_h = int(father_feet_h)
+    father_inches_h = int(father_inches_h)
+
+    while mother_feet_h < 4:
+        print("""Mother's height should be at least 4 inches""")
+        mother_feet_h, mother_inches_h = input("Enter mother’s height (in feet and inches): ").split(' ')
+        mother_feet_h = int(mother_feet_h)
+        mother_inches_h = int(mother_inches_h)
+    while father_feet_h < 4:
+        print("""Father's height should be at least 4 inches""")
+        father_feet_h, father_inches_h = input("Enter father’s height (in feet and inches): ").split(' ')
+        father_feet_h = int(father_feet_h)
+        father_inches_h = int(father_inches_h)
+        
+        
+    child_gender = input("""Enter the child's gender (M or F): """)
+    while child_gender != 'F' and child_gender != 'M':
+        print('The gender must be either M or F')
+        child_gender = input("""Enter the child's gender (M or F): """)
+        
+    mother_inches = mother_feet_h * 12
+    father_inches = father_feet_h * 12
+    
+    Hmale_child  =  0.5 + ((mother_inches *  13.0/12.0) + father_inches) /2.0
+    Hfemale_child = 0.5 + ((father_inches *  12.0/13.0) + mother_inches) /2.0
+    
+    male_child_feet = Hmale_child * 0.0833333
+    female_child_feet = Hfemale_child * 0.0833333
+    
+    if child_gender == 'M':
+        print(f"""The child's height is {male_child_feet:.1f} ft""")
+    else:
+        print(f"""The child's height is {female_child_feet:.1f} ft""")
+    selection = (input('Do you want to calculate the height of a child(Y or N)? '))
