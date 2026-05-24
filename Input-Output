@@ -1,0 +1,47 @@
+/*
+This program contains basic input/ouput using Python console
+*/
+
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Jan 26 13:17:18 2024
+
+@author: Hernandez,Jose
+"""
+
+'''
+Cup of Hot Chocolate: $0.75
+Mug of Hot Chocolate: $1.50
+Cookie: $0.65
+'''
+
+Cup = int(input('Enter the number of cups of hot chocolate: ')) #Prompts user to input number of cups
+Mug = int(input('Enter the number of mugs of hot chocolate: ')) #Prompts user to input number of mugs
+Cookie = int(input('Enter the number of cookies: ')) #Prompts user to input number of cookies
+
+Cost_Cup = Cup * 0.75 #Calculates the cost of the cups ordered
+Cost_Mug = Mug * 1.50 #Calculates the cost of the mugs ordered
+Cost_Cookie = Cookie * 0.65 #Calculates the cost of the cookies ordered
+
+Total_Cost = Cost_Cup + Cost_Mug + Cost_Cookie #Calculates the total cost
+
+print(f'Amount_Due= ${Total_Cost:.2f}') #Displays the amount due
+
+Amount_Paid = float(input('Enter the amount of money paid= $')) #Prompts user to input amount customer paid
+Change_Due = Amount_Paid - Total_Cost
+
+print('******************') #Displays the receipt
+print("""Merry Mary's Hot Chocolate Stand Bill""")
+print('Cups of Hot Chocolate')
+print('Number = ',Cup)
+print(f'Cost= ${Cost_Cup:.2f}')
+print('Mugs of Hot Chocolate')
+print('Number =', Mug)
+print(f'Cost= ${Cost_Mug:.2f}')
+print('Cookies =', Cookie)
+print(f'Cost= ${Cost_Cookie:.2f}')
+print(f'Total= ${Total_Cost:.2f}')
+print(f'Amount Paid= ${Amount_Paid:.2f}')
+print(f'Change Due= ${Change_Due:.2f}')
+print('Thanks - Have a Great Day - Come Again!')
+print('******************')
