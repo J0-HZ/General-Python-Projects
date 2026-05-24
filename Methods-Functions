@@ -1,0 +1,97 @@
+"""
+This program uses functions to determine a game of rock-paper-scissors
+between the player and cpu.
+"""
+
+"""
+@author: Hernandez, Jose
+"""
+
+import random
+
+def getUserChoice():
+    print('0 for Rock, 1 for Paper, 2 for Scissors')
+    player_choice = int(input('Choose Rock, Paper, or Scissors: '))
+    print( )
+    if player_choice == 0:
+        print('Player chose rock')
+        return 'Rock'
+    elif player_choice == 1:
+        print('Player chose paper')
+        return 'Paper'
+    elif player_choice == 2:
+        print('Player chose scissors')
+        return 'Scissors'
+    
+def getComputerChoice():
+    computer_choice = random.randint(0, 2)
+    if computer_choice == 0:
+        print('CPU chose rock')
+        print()
+        return 'Rock'
+    elif computer_choice == 1:
+        print('CPU chose paper')
+        print()
+        return 'Paper'
+    elif computer_choice == 2:
+        print('CPU chose scissors')
+        print()
+        return 'Scissors'
+    
+def determineWinner(player_choice,computer_choice):
+    if (player_choice == 'Rock') and (computer_choice == 'Paper'):
+        print('Paper wraps rock')
+        print( )
+        return 'C'
+    elif (player_choice == 'Rock') and (computer_choice == 'Scissors'):
+        print('Rock smashes Scissors')
+        print( )
+        return 'U'
+    elif (player_choice == 'Paper') and (computer_choice == 'Scissors'):
+        print('Scissors cuts Paper')
+        print( )
+        return 'C'
+    elif (player_choice == 'Paper') and (computer_choice == 'Rock'):
+        print('Paper wraps rock')
+        print( )
+        return 'U'
+    elif (player_choice == 'Scissors') and (computer_choice == 'Paper'):
+        print('Scissors cuts Paper')
+        print( )
+        return 'U'
+    elif (player_choice == 'Scissors') and (computer_choice == 'Rock'):
+        print('Rock smashes Scissors')
+        print( )
+        return 'C'
+
+Player_win_count = 0
+Computer_win_count = 0
+
+for i in range(0,10):
+    Player = getUserChoice()
+    CPU = getComputerChoice()
+    
+    while Player == CPU:
+        print('Tie')
+        print( )
+        Player = getUserChoice()
+        CPU = getComputerChoice()
+    
+    Results = determineWinner(Player, CPU)
+    
+    if Results == 'U':
+        Player_win_count += 1
+    elif Results == 'C':
+        Computer_win_count += 1
+
+print('Out of 10 games (excluding ties):')
+print('Player wins:',Player_win_count)
+print('Computer wins:', Computer_win_count)
+print( )
+
+if Player_win_count > Computer_win_count:
+    print('User wins!')
+elif Computer_win_count > Player_win_count:
+    print('Computer wins!')
+else:
+    print('Both Players Tied')
