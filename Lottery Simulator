@@ -1,0 +1,82 @@
+"""
+This program simulates a lottery game using a ticket and a biased ticket
+"""
+
+"""
+@author: Hernandez, Jose
+"""
+
+import random
+
+def generateTicket():
+    size = 6
+    ticket_list = []
+    for i in range(0,size):
+        ticket_list.append(random.randint(0, 9))
+    
+    return ticket_list
+    
+def generateBiasedTicket():
+    index_one_and_two = 2
+    index_three_and_four = 2
+    index_five_and_six = 2
+    biased_list = []
+    
+    for i in range(0,index_one_and_two):
+        biased_list.append(random.randint(0, 3))
+    for j in range(0,index_three_and_four):
+        biased_list.append(random.randint(4, 6))
+    for l in range(0,index_five_and_six):
+        biased_list.append(random.randint(0, 9))
+    
+    return biased_list
+
+def getUserTicket():
+    size = 6
+    user_list = []
+    
+    print('Enter 6 numbers you think are in the lottery (0 - 9): ')
+    
+    for i in range(0,size):
+        user_inputs = int(input())
+        user_list.append(user_inputs)
+    
+    return user_list
+
+def compareTickets(UserTicket,LotteryTicket):
+    Matching_Numbers = 0
+    Unmatching_Numbers = 0
+    
+    print('User Ticket:',UserTicket)
+    print('Lottery Ticket:',LotteryTicket)
+    
+    for index in range(0, len(UserTicket)):
+        if UserTicket[index] == LotteryTicket[index]:
+            Matching_Numbers += 1
+        if UserTicket[index] != LotteryTicket[index]:
+            Unmatching_Numbers += 1
+    
+    print('# of matching numbers:',Matching_Numbers)
+    print('# of unmatching numbers:',Unmatching_Numbers)
+
+###############################################
+
+choice = input('Do you want to generate lottery tickets? Enter Y or N: ')
+
+while choice == 'y' or choice == 'Y':
+    Lottery = generateTicket()
+    Biased_Lottery = generateBiasedTicket()
+    User = getUserTicket()
+    print()
+    
+    print('Comparison between the User Ticket and Random Lottery Ticket: ')
+    comparison_1 = compareTickets(User, Lottery)
+    print()
+    
+    print('Comparison between the User Ticket and Biased Lottery Ticket: ')
+    comparison_2 = compareTickets(User, Biased_Lottery)
+    print()
+    
+    choice = input('Do you want to generate lottery tickets? Enter Y or N: ')
+    
+###############################################
