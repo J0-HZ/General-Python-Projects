@@ -1,11 +1,8 @@
-/*
+'''
 This program contains basic input/ouput using Python console
-*/
+'''
 
-# -*- coding: utf-8 -*-
 """
-Created on Fri Jan 26 13:17:18 2024
-
 @author: Hernandez,Jose
 """
 
